@@ -1,6 +1,6 @@
 import { Regex, type SomeCompanionConfigField } from '@companion-module/base'
 
-export interface PtzOpticsConfig {
+export interface FomakoConfig {
 	host: string
 	port: string
 	debugLogging: boolean
@@ -10,7 +10,7 @@ export interface PtzOpticsConfig {
  * Test whether a config is missing the 'debugLogging' option that was added in
  * 3.0.0.
  */
-export function configIsMissingDebugLogging(config: PtzOpticsConfig | null): config is PtzOpticsConfig {
+export function configIsMissingDebugLogging(config: FomakoConfig | null): config is FomakoConfig {
 	return config !== null && !('debugLogging' in config)
 }
 
@@ -18,7 +18,7 @@ export function configIsMissingDebugLogging(config: PtzOpticsConfig | null): con
  * Add the 'debugLogging' option (defaulting to false) to a pre-3.0.0 config
  * that's missing it.
  */
-export function addDebugLoggingOptionToConfig(config: PtzOpticsConfig): void {
+export function addDebugLoggingOptionToConfig(config: FomakoConfig): void {
 	config.debugLogging = false
 }
 

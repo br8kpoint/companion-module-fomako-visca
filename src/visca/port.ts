@@ -6,11 +6,11 @@ import {
 	type TCPHelperEvents,
 } from '@companion-module/base'
 import { checkCommandBytes, type Command, Inquiry, type Response, responseMatches } from './command.js'
-import type { PtzOpticsInstance } from '../instance.js'
+import type { FomakoInstance } from '../instance.js'
 import { prettyBytes } from './utils.js'
 
 const BLAME_MODULE =
-	'This is likely a bug in the ptzoptics-visca Companion module.  Please ' +
+	'This is likely a bug in the fomako-visca Companion module.  Please ' +
 	"click the bug icon by any camera instance in the table in Companion's " +
 	'Connections tab to report it.'
 
@@ -96,11 +96,11 @@ abstract class PendingBase {
 	 * message a response corresponds to.
 	 *
 	 * Errors returned by the camera to individual commands are usually *not*
-	 * treated as fatal.  People use this module with non-PTZOptics cameras that
-	 * may not support commands identical to how PTZOptics cameras support them.
-	 * We'd rather we only broke them if PTZOptics cameras demanded it.
+	 * treated as fatal.  People use this module with non-Fomako cameras that
+	 * may not support commands identical to how Fomako cameras support them.
+	 * We'd rather we only broke them if Fomako cameras demanded it.
 	 *
-	 * But even PTZOptics cameras' command sets vary across time and firmware
+	 * But even Fomako cameras' command sets vary across time and firmware
 	 * revision, so it's perilous to take a hard line.  (Within the commands
 	 * this module exposes, the Exposure Mode action's "Bright mode (manual)"
 	 * setting seems to be supported with G2 cameras but doesn't exist with some
@@ -251,15 +251,15 @@ class PendingInquiry extends PendingBase {
 type PendingMessage = PendingCommand | PendingInquiry
 
 /**
- * The subset of the `PtzOpticsInstance` interface used by `VISCAPort` to log
+ * The subset of the `FomakoInstance` interface used by `VISCAPort` to log
  * messages and update instance connection status.
  */
 export interface PartialInstance {
-	/** See {@link PtzOpticsInstance.log}. */
-	log: PtzOpticsInstance['log']
+	/** See {@link FomakoInstance.log}. */
+	log: FomakoInstance['log']
 
-	/** See {@link PtzOpticsInstance.updateStatus}. */
-	updateStatus: PtzOpticsInstance['updateStatus']
+	/** See {@link FomakoInstance.updateStatus}. */
+	updateStatus: FomakoInstance['updateStatus']
 }
 
 /**
@@ -327,7 +327,7 @@ export class VISCAPort {
 	 * Completion hasn't yet been received.
 	 *
 	 * In principle, this should simply map socket to a single pending command.
-	 * But in reality, the PTZOptics Move SE G3 will, if pressured, assign
+	 * But in reality, the Fomako Move SE G3 will, if pressured, assign
 	 * multiple commands to the same socket *without always clearing the
 	 * socket*.  So instead of that simple mapping, we map socket to a *list* of
 	 * pending commands, and we apply Completions and the like to the first
@@ -531,8 +531,8 @@ export class VISCAPort {
 				await moreDataAvailable
 			}
 
-			// PTZOptics VISCA over IP responses always begin with 0x90.  But
-			// some non-PTZOptics cameras (at least some Sony[0] and Aver[1]
+			// Fomako VISCA over IP responses always begin with 0x90.  But
+			// some non-Fomako cameras (at least some Sony[0] and Aver[1]
 			// models) periodically send a "Network Change Message" (z0 38 FF,
 			// z = device address + 8) to signal the device's address for
 			// daisy-chained RS-232 control  (Sony models don't send it in VISCA
@@ -543,7 +543,7 @@ export class VISCAPort {
 			// will send `80 38 FF` to the module.)
 			//
 			// Because this message isn't meaningful for VISCA over IP, and
-			// because PTZOptics cameras don't send any `z0 xy FF` messages
+			// because Fomako cameras don't send any `z0 xy FF` messages
 			// where `x=3`, we can safely accept a `z0` leading byte here,
 			// discard all received network change messages, then restrict all
 			// other replies to start with `90`.
@@ -607,18 +607,18 @@ export class VISCAPort {
 			//     90 60 02 FF
 			// Inquiry response:
 			//   90 50 ...one or more non-FF bytes...  FF
-			// Network change response (some non-PTZOptics cameras only):
+			// Network change response (some non-Fomako cameras only):
 			//   z0 38 FF (z=8 to F)
 			//
 			// The second byte therefore dictates return message interpretation.
 			//
-			// (PTZOptics also describes No Socket and Command Canceled error
+			// (Fomako also describes No Socket and Command Canceled error
 			// responses, but they're only returned in response to invalid VISCA
 			// cancel-a-pending-command commands, and we never send that
 			// command.)
 			const secondByte = returnMessage[1]
 
-			// Network change response (some non-PTZOptics cameras only):
+			// Network change response (some non-Fomako cameras only):
 			//   z0 38 FF (z=8 to F)
 			if (secondByte === 0x38) {
 				if (returnMessage.length !== 3) {
@@ -858,8 +858,8 @@ export class VISCAPort {
 					//    doesn't exist in G3 cameras[1] and triggers a syntax
 					//    error with them.
 					//
-					// 0. https://ptzoptics.imagerelay.com/share/PTZOptics-G2-VISCA-over-IP-Commands
-					// 1. https://ptzoptics.imagerelay.com/share/PTZOptics-G3-VISCA-over-IP-Commands
+					// 0. https://Fomako.imagerelay.com/share/Fomako-G2-VISCA-over-IP-Commands
+					// 1. https://Fomako.imagerelay.com/share/Fomako-G3-VISCA-over-IP-Commands
 					const blame = message.userDefined ? 'Double-check the syntax of the message.' : BLAME_MODULE
 					const reason = `Camera reported a syntax error in the message ${prettyBytes(messageBytes)}.  ${blame}`
 					message.nonfatalError(reason)

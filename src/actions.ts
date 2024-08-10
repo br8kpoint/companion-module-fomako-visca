@@ -1,5 +1,5 @@
 import type { CompanionActionDefinitions, CompanionActionEvent } from '@companion-module/base'
-import { PtzOpticsActionId } from './actions-enum.js'
+import { FomakoActionId } from './actions-enum.js'
 import {
 	AutoTracking,
 	AutoWhiteBalanceSensitivity,
@@ -54,9 +54,9 @@ import {
 	WhiteBalanceOption,
 } from './camera/options.js'
 import { generateCustomCommandAction } from './custom-command-action.js'
-import type { PtzOpticsInstance } from './instance.js'
+import type { FomakoInstance } from './instance.js'
 
-export function getActions(instance: PtzOpticsInstance): CompanionActionDefinitions {
+export function getActions(instance: FomakoInstance): CompanionActionDefinitions {
 	function createPanTiltCallback(direction: readonly [number, number]) {
 		return async (_event: CompanionActionEvent) => {
 			const { panSpeed, tiltSpeed } = instance.panTiltSpeed()
@@ -65,59 +65,59 @@ export function getActions(instance: PtzOpticsInstance): CompanionActionDefiniti
 	}
 
 	const actionDefinitions: CompanionActionDefinitions = {
-		[PtzOpticsActionId.PanTiltLeft]: {
+		[FomakoActionId.PanTiltLeft]: {
 			name: 'Pan Left',
 			options: [],
 			callback: createPanTiltCallback(PanTiltDirection[PanTiltAction.Left]),
 		},
-		[PtzOpticsActionId.PanTiltRight]: {
+		[FomakoActionId.PanTiltRight]: {
 			name: 'Pan Right',
 			options: [],
 			callback: createPanTiltCallback(PanTiltDirection[PanTiltAction.Right]),
 		},
-		[PtzOpticsActionId.PanTiltUp]: {
+		[FomakoActionId.PanTiltUp]: {
 			name: 'Tilt Up',
 			options: [],
 			callback: createPanTiltCallback(PanTiltDirection[PanTiltAction.Up]),
 		},
-		[PtzOpticsActionId.PanTiltDown]: {
+		[FomakoActionId.PanTiltDown]: {
 			name: 'Tilt Down',
 			options: [],
 			callback: createPanTiltCallback(PanTiltDirection[PanTiltAction.Down]),
 		},
-		[PtzOpticsActionId.PanTiltUpLeft]: {
+		[FomakoActionId.PanTiltUpLeft]: {
 			name: 'Up Left',
 			options: [],
 			callback: createPanTiltCallback(PanTiltDirection[PanTiltAction.UpLeft]),
 		},
-		[PtzOpticsActionId.PanTiltUpRight]: {
+		[FomakoActionId.PanTiltUpRight]: {
 			name: 'Up Right',
 			options: [],
 			callback: createPanTiltCallback(PanTiltDirection[PanTiltAction.UpRight]),
 		},
-		[PtzOpticsActionId.PanTiltDownLeft]: {
+		[FomakoActionId.PanTiltDownLeft]: {
 			name: 'Down Left',
 			options: [],
 			callback: createPanTiltCallback(PanTiltDirection[PanTiltAction.DownLeft]),
 		},
-		[PtzOpticsActionId.PanTiltDownRight]: {
+		[FomakoActionId.PanTiltDownRight]: {
 			name: 'Down Right',
 			options: [],
 			callback: createPanTiltCallback(PanTiltDirection[PanTiltAction.DownRight]),
 		},
-		[PtzOpticsActionId.PanTiltStop]: {
+		[FomakoActionId.PanTiltStop]: {
 			name: 'P/T Stop',
 			options: [],
 			callback: createPanTiltCallback(PanTiltDirection[PanTiltAction.Stop]),
 		},
-		[PtzOpticsActionId.PanTiltHome]: {
+		[FomakoActionId.PanTiltHome]: {
 			name: 'P/T Home',
 			options: [],
 			callback: async (_event: CompanionActionEvent) => {
 				void instance.sendCommand(PanTiltHome)
 			},
 		},
-		[PtzOpticsActionId.PanTiltSetSpeed]: {
+		[FomakoActionId.PanTiltSetSpeed]: {
 			name: 'P/T Speed',
 			options: [
 				{
@@ -133,63 +133,63 @@ export function getActions(instance: PtzOpticsInstance): CompanionActionDefiniti
 				instance.setPanTiltSpeed(speed)
 			},
 		},
-		[PtzOpticsActionId.PanTiltSpeedUp]: {
+		[FomakoActionId.PanTiltSpeedUp]: {
 			name: 'P/T Speed Up',
 			options: [],
 			callback: async (_event: CompanionActionEvent) => {
 				instance.increasePanTiltSpeed()
 			},
 		},
-		[PtzOpticsActionId.PanTiltSpeedDown]: {
+		[FomakoActionId.PanTiltSpeedDown]: {
 			name: 'P/T Speed Down',
 			options: [],
 			callback: async (_event: CompanionActionEvent) => {
 				instance.decreasePanTiltSpeed()
 			},
 		},
-		[PtzOpticsActionId.StartZoomIn]: {
+		[FomakoActionId.StartZoomIn]: {
 			name: 'Zoom In',
 			options: [],
 			callback: async (_event: CompanionActionEvent) => {
 				void instance.sendCommand(ZoomIn)
 			},
 		},
-		[PtzOpticsActionId.StartZoomOut]: {
+		[FomakoActionId.StartZoomOut]: {
 			name: 'Zoom Out',
 			options: [],
 			callback: async (event: CompanionActionEvent) => {
 				void instance.sendCommand(ZoomOut, event.options)
 			},
 		},
-		[PtzOpticsActionId.StopZoom]: {
+		[FomakoActionId.StopZoom]: {
 			name: 'Zoom Stop',
 			options: [],
 			callback: async (_event: CompanionActionEvent) => {
 				void instance.sendCommand(ZoomStop)
 			},
 		},
-		[PtzOpticsActionId.StartFocusNearer]: {
+		[FomakoActionId.StartFocusNearer]: {
 			name: 'Focus Near',
 			options: [],
 			callback: async (_event: CompanionActionEvent) => {
 				void instance.sendCommand(FocusNearStandard)
 			},
 		},
-		[PtzOpticsActionId.StartFocusFarther]: {
+		[FomakoActionId.StartFocusFarther]: {
 			name: 'Focus Far',
 			options: [],
 			callback: async (_event: CompanionActionEvent) => {
 				void instance.sendCommand(FocusFarStandard)
 			},
 		},
-		[PtzOpticsActionId.StopFocus]: {
+		[FomakoActionId.StopFocus]: {
 			name: 'Focus Stop',
 			options: [],
 			callback: async (_event: CompanionActionEvent) => {
 				void instance.sendCommand(FocusStop)
 			},
 		},
-		[PtzOpticsActionId.SelectFocusMode]: {
+		[FomakoActionId.SelectFocusMode]: {
 			name: 'Focus Mode',
 			options: [
 				{
@@ -209,21 +209,21 @@ export function getActions(instance: PtzOpticsInstance): CompanionActionDefiniti
 				return { ...opts }
 			},
 		},
-		[PtzOpticsActionId.LockFocus]: {
+		[FomakoActionId.LockFocus]: {
 			name: 'Focus Lock',
 			options: [],
 			callback: async (_event: CompanionActionEvent) => {
 				void instance.sendCommand(FocusLock)
 			},
 		},
-		[PtzOpticsActionId.UnlockFocus]: {
+		[FomakoActionId.UnlockFocus]: {
 			name: 'Focus Unlock',
 			options: [],
 			callback: async (_event: CompanionActionEvent) => {
 				void instance.sendCommand(FocusUnlock)
 			},
 		},
-		[PtzOpticsActionId.SelectExposureMode]: {
+		[FomakoActionId.SelectExposureMode]: {
 			name: 'Exposure Mode',
 			options: [
 				{
@@ -243,21 +243,21 @@ export function getActions(instance: PtzOpticsInstance): CompanionActionDefiniti
 				return { ...opts }
 			},
 		},
-		[PtzOpticsActionId.IrisUp]: {
+		[FomakoActionId.IrisUp]: {
 			name: 'Iris Up',
 			options: [],
 			callback: async (_event: CompanionActionEvent) => {
 				void instance.sendCommand(IrisUp)
 			},
 		},
-		[PtzOpticsActionId.IrisDown]: {
+		[FomakoActionId.IrisDown]: {
 			name: 'Iris Down',
 			options: [],
 			callback: async (_event: CompanionActionEvent) => {
 				void instance.sendCommand(IrisDown)
 			},
 		},
-		[PtzOpticsActionId.SetIris]: {
+		[FomakoActionId.SetIris]: {
 			name: 'Set Iris',
 			options: [
 				{
@@ -272,21 +272,21 @@ export function getActions(instance: PtzOpticsInstance): CompanionActionDefiniti
 				void instance.sendCommand(IrisSet, event.options)
 			},
 		},
-		[PtzOpticsActionId.ShutterUp]: {
+		[FomakoActionId.ShutterUp]: {
 			name: 'Shutter Up',
 			options: [],
 			callback: async (_event: CompanionActionEvent) => {
 				void instance.sendCommand(ShutterUp)
 			},
 		},
-		[PtzOpticsActionId.ShutterDown]: {
+		[FomakoActionId.ShutterDown]: {
 			name: 'Shutter Down',
 			options: [],
 			callback: async (_event: CompanionActionEvent) => {
 				void instance.sendCommand(ShutterDown)
 			},
 		},
-		[PtzOpticsActionId.SetShutter]: {
+		[FomakoActionId.SetShutter]: {
 			name: 'Set Shutter',
 			options: [
 				{
@@ -301,7 +301,7 @@ export function getActions(instance: PtzOpticsInstance): CompanionActionDefiniti
 				void instance.sendCommand(ShutterSet, event.options)
 			},
 		},
-		[PtzOpticsActionId.SetPreset]: {
+		[FomakoActionId.SetPreset]: {
 			name: 'Save Preset',
 			options: [
 				{
@@ -317,7 +317,7 @@ export function getActions(instance: PtzOpticsInstance): CompanionActionDefiniti
 				void instance.sendCommand(PresetSave, event.options)
 			},
 		},
-		[PtzOpticsActionId.RecallPreset]: {
+		[FomakoActionId.RecallPreset]: {
 			name: 'Recall Preset',
 			options: [
 				{
@@ -333,7 +333,7 @@ export function getActions(instance: PtzOpticsInstance): CompanionActionDefiniti
 				void instance.sendCommand(PresetRecall, event.options)
 			},
 		},
-		[PtzOpticsActionId.SetPresetDriveSpeed]: {
+		[FomakoActionId.SetPresetDriveSpeed]: {
 			name: 'Preset Drive Speed',
 			options: [
 				{
@@ -357,7 +357,7 @@ export function getActions(instance: PtzOpticsInstance): CompanionActionDefiniti
 				void instance.sendCommand(PresetDriveSpeed, event.options)
 			},
 		},
-		[PtzOpticsActionId.CameraPowerState]: {
+		[FomakoActionId.CameraPowerState]: {
 			name: 'Power Camera',
 			options: [
 				{
@@ -372,7 +372,7 @@ export function getActions(instance: PtzOpticsInstance): CompanionActionDefiniti
 				void instance.sendCommand(CameraPower, event.options)
 			},
 		},
-		[PtzOpticsActionId.OSD]: {
+		[FomakoActionId.OSD]: {
 			name: 'OSD Open/Close',
 			options: [
 				{
@@ -409,7 +409,7 @@ export function getActions(instance: PtzOpticsInstance): CompanionActionDefiniti
 				return { ...opts }
 			},
 		},
-		[PtzOpticsActionId.OSDNavigate]: {
+		[FomakoActionId.OSDNavigate]: {
 			name: 'Navigate OSD Camera menu',
 			options: [
 				{
@@ -424,21 +424,21 @@ export function getActions(instance: PtzOpticsInstance): CompanionActionDefiniti
 				void instance.sendCommand(OnScreenDisplayNavigate, event.options)
 			},
 		},
-		[PtzOpticsActionId.OSDEnter]: {
+		[FomakoActionId.OSDEnter]: {
 			name: 'OSD Enter',
 			options: [],
 			callback: async (_event: CompanionActionEvent) => {
 				void instance.sendCommand(OnScreenDisplayEnter)
 			},
 		},
-		[PtzOpticsActionId.OSDBack]: {
+		[FomakoActionId.OSDBack]: {
 			name: 'OSD Back',
 			options: [],
 			callback: async (_event: CompanionActionEvent) => {
 				void instance.sendCommand(OnScreenDisplayBack)
 			},
 		},
-		[PtzOpticsActionId.SelectWhiteBalance]: {
+		[FomakoActionId.SelectWhiteBalance]: {
 			name: 'White balance',
 			options: [
 				{
@@ -453,14 +453,14 @@ export function getActions(instance: PtzOpticsInstance): CompanionActionDefiniti
 				void instance.sendCommand(WhiteBalance, event.options)
 			},
 		},
-		[PtzOpticsActionId.WhiteBalanceOnePushTrigger]: {
+		[FomakoActionId.WhiteBalanceOnePushTrigger]: {
 			name: 'White balance one push trigger',
 			options: [],
 			callback: async (_event: CompanionActionEvent) => {
 				void instance.sendCommand(WhiteBalanceOnePushTrigger)
 			},
 		},
-		[PtzOpticsActionId.SelectAutoWhiteBalanceSensitivity]: {
+		[FomakoActionId.SelectAutoWhiteBalanceSensitivity]: {
 			name: 'Auto white balance sensitivity',
 			options: [
 				{
@@ -475,7 +475,7 @@ export function getActions(instance: PtzOpticsInstance): CompanionActionDefiniti
 				void instance.sendCommand(AutoWhiteBalanceSensitivity, event.options)
 			},
 		},
-		[PtzOpticsActionId.AutoTracking]: {
+		[FomakoActionId.AutoTracking]: {
 			name: 'Auto Tracking',
 			options: [
 				{
@@ -490,7 +490,7 @@ export function getActions(instance: PtzOpticsInstance): CompanionActionDefiniti
 				void instance.sendCommand(AutoTracking, event.options)
 			},
 		},
-		[PtzOpticsActionId.SendCustomCommand]: generateCustomCommandAction(instance),
+		[FomakoActionId.SendCustomCommand]: generateCustomCommandAction(instance),
 	}
 
 	return actionDefinitions

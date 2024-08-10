@@ -1,4 +1,4 @@
-# companion-module-ptzoptics-visca
+# companion-module-fomako-visca
 
 See [HELP.md](./companion/HELP.md) and [LICENSE](./LICENSE)
 

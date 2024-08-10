@@ -1,12 +1,12 @@
 import { type CompanionOptionValues, InstanceBase, type SomeCompanionConfigField } from '@companion-module/base'
 import { getActions } from './actions.js'
-import { getConfigFields, type PtzOpticsConfig } from './config.js'
+import { getConfigFields, type FomakoConfig } from './config.js'
 import { getPresets } from './presets.js'
 import type { Command, Inquiry } from './visca/command.js'
 import { VISCAPort } from './visca/port.js'
 
-export class PtzOpticsInstance extends InstanceBase<PtzOpticsConfig> {
-	#config: PtzOpticsConfig = {
+export class FomakoInstance extends InstanceBase<FomakoConfig> {
+	#config: FomakoConfig = {
 		host: '',
 		port: '5678',
 		debugLogging: false,
@@ -140,17 +140,17 @@ export class PtzOpticsInstance extends InstanceBase<PtzOpticsConfig> {
 	 * @param desc
 	 *   A description of the event occasioning the logging.
 	 */
-	logConfig(config: PtzOpticsConfig, desc = 'logConfig()'): void {
+	logConfig(config: FomakoConfig, desc = 'logConfig()'): void {
 		this.log(
 			'info',
-			`PTZOptics module configuration on ${desc}: ${JSON.stringify(config, (_k, v) => {
+			`Fomako module configuration on ${desc}: ${JSON.stringify(config, (_k, v) => {
 				if (v === undefined) return { undefined: true }
 				return v
 			})}`
 		)
 	}
 
-	async init(config: PtzOpticsConfig): Promise<void> {
+	async init(config: FomakoConfig): Promise<void> {
 		this.logConfig(config, 'init()')
 
 		this.#config = config
@@ -176,7 +176,7 @@ export class PtzOpticsInstance extends InstanceBase<PtzOpticsConfig> {
 		}
 	}
 
-	async configUpdated(config: PtzOpticsConfig): Promise<void> {
+	async configUpdated(config: FomakoConfig): Promise<void> {
 		this.logConfig(config, 'configUpdated()')
 
 		// Reset the connection if the connection is closed or any configuration

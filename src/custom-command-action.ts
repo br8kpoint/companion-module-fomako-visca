@@ -5,8 +5,8 @@ import type {
 	CompanionInputFieldTextInput,
 	CompanionOptionValues,
 } from '@companion-module/base'
-import { PtzOpticsActionId } from './actions-enum.js'
-import type { PtzOpticsInstance } from './instance.js'
+import { FomakoActionId } from './actions-enum.js'
+import type { FomakoInstance } from './instance.js'
 import { type CommandParams, type PartialCommandParams, UserDefinedCommand } from './visca/command.js'
 
 /** Parse a VISCA message string into an array of byte values. */
@@ -131,7 +131,7 @@ const CommandParametersDefault = ''
  * specify no parameters are present in it.
  */
 export function isCustomCommandMissingCommandParameterOptions(action: CompanionActionInfo): boolean {
-	return action.actionId === PtzOpticsActionId.SendCustomCommand && !(CommandParametersOptionId in action.options)
+	return action.actionId === FomakoActionId.SendCustomCommand && !(CommandParametersOptionId in action.options)
 }
 
 /**
@@ -193,7 +193,7 @@ export async function computeCustomCommandAndOptions(
 /**
  * Generate an action definition for the "Custom command" action.
  */
-export function generateCustomCommandAction(instance: PtzOpticsInstance): CompanionActionDefinition {
+export function generateCustomCommandAction(instance: FomakoInstance): CompanionActionDefinition {
 	const PARAMETER_LIST_REGEX = '/^(?:[0-9]+(?:, ?[0-9]+)*(?:; ?[0-9]+(?:, ?[0-9]+)*)*|)$/'
 
 	return {
@@ -202,7 +202,7 @@ export function generateCustomCommandAction(instance: PtzOpticsInstance): Compan
 			'Send a command of custom bytes (with embedded parameters filled ' +
 			'by user-defined expression) to the camera.  The camera must ' +
 			'respond with the standard ACK + Completion response to the ' +
-			'command or with an error.  Refer to PTZOptics VISCA over IP ' +
+			'command or with an error.  Refer to Fomako VISCA over IP ' +
 			'command documentation for command structure details.',
 		options: [
 			{

@@ -1,4 +1,4 @@
-# companion-module-ptzoptics-visca
+# companion-module-fomako-visca
 
 This module can be used to control PTZ camera's with the Sony VISCA protocol.
 

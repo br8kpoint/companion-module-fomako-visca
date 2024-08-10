@@ -1,5 +1,5 @@
 import { runEntrypoint } from '@companion-module/base'
-import { PtzOpticsInstance } from './instance.js'
+import { FomakoInstance } from './instance.js'
 import { UpgradeScripts } from './upgrades.js'
 
-runEntrypoint(PtzOpticsInstance, UpgradeScripts)
+runEntrypoint(FomakoInstance, UpgradeScripts)

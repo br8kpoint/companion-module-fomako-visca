@@ -1,4 +1,4 @@
-import type { PtzOpticsInstance } from '../instance.js'
+import type { FomakoInstance } from '../instance.js'
 import {
 	AutoTrackingOption,
 	AutoWhiteBalanceSensitivityOption,
@@ -41,7 +41,7 @@ export const PanTiltDirection: { readonly [key in PanTiltAction]: readonly [numb
 }
 
 export async function sendPanTiltCommand(
-	instance: PtzOpticsInstance,
+	instance: FomakoInstance,
 	direction: readonly [number, number],
 	panSpeed: number,
 	tiltSpeed: number
@@ -160,11 +160,11 @@ export const PresetDriveSpeed = new ModuleDefinedCommand([0x81, 0x01, 0x06, 0x01
 	},
 })
 
-// PTZOptics G3 VISCA over IP Commands, 10/27/2023:
+// Fomako G3 VISCA over IP Commands, 10/27/2023:
 // 81 0A 11 54 0p FF, p: 0x2=On, 0x3=Off
-export const AutoTracking = new ModuleDefinedCommand([0x81, 0x0a, 0x11, 0x54, 0x00, 0xff], {
+export const AutoTracking = new ModuleDefinedCommand([0x81, 0x0a, 0x01, 0x32, 0x00, 0x00, 0x00, 0x00, 0xff], {
 	[AutoTrackingOption.id]: {
-		nibbles: [9],
+		nibbles: [13],
 		choiceToParam: AutoTrackingOption.choiceToParam,
 	},
 })

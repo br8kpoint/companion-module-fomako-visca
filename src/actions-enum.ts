@@ -1,4 +1,4 @@
-export enum PtzOpticsActionId {
+export enum FomakoActionId {
 	PanTiltLeft = 'left',
 	PanTiltRight = 'right',
 	PanTiltUp = 'up',

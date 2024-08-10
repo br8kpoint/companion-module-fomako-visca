@@ -1,16 +1,16 @@
 {
-	"id": "ptzoptics-visca",
-	"name": "PTZOptics Visca",
+	"id": "fomako-visca",
+	"name": "Fomako Visca",
 	"shortname": "visca",
-	"description": "Module to control PTZ cameras with PTZoptics Visca protocol over IP",
+	"description": "Module to control PTZ cameras with Fomako Visca protocol over IP",
 	"version": "0.0.0",
 	"license": "MIT",
-	"repository": "git+https://github.com/bitfocus/companion-module-ptzoptics-visca.git",
-	"bugs": "https://github.com/bitfocus/companion-module-ptzoptics-visca/issues",
+	"repository": "git+https://github.com/br8kpoint/companion-module-fomako-visca.git",
+	"bugs": "https://github.com/br8kpoint/companion-module-fomako-visca/issues",
 	"maintainers": [
 		{
-			"name": "Jeff Walden",
-			"email": "jwalden@mit.edu"
+			"name": "Mike Fair",
+			"email": "breakawayfair@hotmail.com"
 		}
 	],
 	"runtime": {
@@ -20,7 +20,7 @@
 		"entrypoint": "../dist/main.js"
 	},
 	"legacyIds": [],
-	"manufacturer": "PTZoptics",
+	"manufacturer": "Fomako",
 	"products": ["VISCA"],
 	"keywords": ["Protocol", "Camera"]
 }

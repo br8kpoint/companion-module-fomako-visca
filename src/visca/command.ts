@@ -396,7 +396,7 @@ export function checkCommandBytes(bytes: readonly number[]): string | null {
 	if (bytes[0] !== 0x81) {
 		// VISCA generally says the first byte is 8x, where x encodes the
 		// particular camera to which the command applies when cameras are
-		// connected in series.  But PTZOptics VISCA over TCP forces x=1.
+		// connected in series.  But Fomako VISCA over TCP forces x=1.
 		return 'first byte in command must be 0x81'
 	}
 

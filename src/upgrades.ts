@@ -3,7 +3,7 @@ import type {
 	CompanionStaticUpgradeResult,
 	CompanionUpgradeContext,
 } from '@companion-module/base'
-import { addDebugLoggingOptionToConfig, configIsMissingDebugLogging, type PtzOpticsConfig } from './config.js'
+import { addDebugLoggingOptionToConfig, configIsMissingDebugLogging, type FomakoConfig } from './config.js'
 import {
 	addCommandParameterOptionsToCustomCommandOptions,
 	isCustomCommandMissingCommandParameterOptions,
@@ -20,10 +20,10 @@ import {
  * user-defined parameters.
  */
 function updateCustomCommandsWithCommandParamOptions(
-	_context: CompanionUpgradeContext<PtzOpticsConfig>,
-	props: CompanionStaticUpgradeProps<PtzOpticsConfig>
-): CompanionStaticUpgradeResult<PtzOpticsConfig> {
-	const result: CompanionStaticUpgradeResult<PtzOpticsConfig> = {
+	_context: CompanionUpgradeContext<FomakoConfig>,
+	props: CompanionStaticUpgradeProps<FomakoConfig>
+): CompanionStaticUpgradeResult<FomakoConfig> {
+	const result: CompanionStaticUpgradeResult<FomakoConfig> = {
 		updatedActions: [],
 		updatedConfig: null,
 		updatedFeedbacks: [],
@@ -46,10 +46,10 @@ function updateCustomCommandsWithCommandParamOptions(
  * value for that option to older configs.
  */
 function addDebugLoggingConfigIfMissing(
-	_context: CompanionUpgradeContext<PtzOpticsConfig>,
-	props: CompanionStaticUpgradeProps<PtzOpticsConfig>
-): CompanionStaticUpgradeResult<PtzOpticsConfig> {
-	const result: CompanionStaticUpgradeResult<PtzOpticsConfig> = {
+	_context: CompanionUpgradeContext<FomakoConfig>,
+	props: CompanionStaticUpgradeProps<FomakoConfig>
+): CompanionStaticUpgradeResult<FomakoConfig> {
+	const result: CompanionStaticUpgradeResult<FomakoConfig> = {
 		updatedActions: [],
 		updatedConfig: null,
 		updatedFeedbacks: [],

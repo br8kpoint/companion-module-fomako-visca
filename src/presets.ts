@@ -1,5 +1,5 @@
 import { combineRgb, type CompanionPresetDefinitions } from '@companion-module/base'
-import { PtzOpticsActionId } from './actions-enum.js'
+import { FomakoActionId } from './actions-enum.js'
 import {
 	IMAGE_UP,
 	IMAGE_DOWN,
@@ -31,13 +31,13 @@ export function getPresets(): CompanionPresetDefinitions {
 			{
 				down: [
 					{
-						actionId: PtzOpticsActionId.PanTiltUp,
+						actionId: FomakoActionId.PanTiltUp,
 						options: {},
 					},
 				],
 				up: [
 					{
-						actionId: PtzOpticsActionId.PanTiltStop,
+						actionId: FomakoActionId.PanTiltStop,
 						options: {},
 					},
 				],
@@ -62,13 +62,13 @@ export function getPresets(): CompanionPresetDefinitions {
 			{
 				down: [
 					{
-						actionId: PtzOpticsActionId.PanTiltDown,
+						actionId: FomakoActionId.PanTiltDown,
 						options: {},
 					},
 				],
 				up: [
 					{
-						actionId: PtzOpticsActionId.PanTiltStop,
+						actionId: FomakoActionId.PanTiltStop,
 						options: {},
 					},
 				],
@@ -93,13 +93,13 @@ export function getPresets(): CompanionPresetDefinitions {
 			{
 				down: [
 					{
-						actionId: PtzOpticsActionId.PanTiltLeft,
+						actionId: FomakoActionId.PanTiltLeft,
 						options: {},
 					},
 				],
 				up: [
 					{
-						actionId: PtzOpticsActionId.PanTiltStop,
+						actionId: FomakoActionId.PanTiltStop,
 						options: {},
 					},
 				],
@@ -124,13 +124,13 @@ export function getPresets(): CompanionPresetDefinitions {
 			{
 				down: [
 					{
-						actionId: PtzOpticsActionId.PanTiltRight,
+						actionId: FomakoActionId.PanTiltRight,
 						options: {},
 					},
 				],
 				up: [
 					{
-						actionId: PtzOpticsActionId.PanTiltStop,
+						actionId: FomakoActionId.PanTiltStop,
 						options: {},
 					},
 				],
@@ -155,13 +155,13 @@ export function getPresets(): CompanionPresetDefinitions {
 			{
 				down: [
 					{
-						actionId: PtzOpticsActionId.PanTiltUpRight,
+						actionId: FomakoActionId.PanTiltUpRight,
 						options: {},
 					},
 				],
 				up: [
 					{
-						actionId: PtzOpticsActionId.PanTiltStop,
+						actionId: FomakoActionId.PanTiltStop,
 						options: {},
 					},
 				],
@@ -186,13 +186,13 @@ export function getPresets(): CompanionPresetDefinitions {
 			{
 				down: [
 					{
-						actionId: PtzOpticsActionId.PanTiltUpLeft,
+						actionId: FomakoActionId.PanTiltUpLeft,
 						options: {},
 					},
 				],
 				up: [
 					{
-						actionId: PtzOpticsActionId.PanTiltStop,
+						actionId: FomakoActionId.PanTiltStop,
 						options: {},
 					},
 				],
@@ -217,13 +217,13 @@ export function getPresets(): CompanionPresetDefinitions {
 			{
 				down: [
 					{
-						actionId: PtzOpticsActionId.PanTiltDownLeft,
+						actionId: FomakoActionId.PanTiltDownLeft,
 						options: {},
 					},
 				],
 				up: [
 					{
-						actionId: PtzOpticsActionId.PanTiltStop,
+						actionId: FomakoActionId.PanTiltStop,
 						options: {},
 					},
 				],
@@ -248,13 +248,13 @@ export function getPresets(): CompanionPresetDefinitions {
 			{
 				down: [
 					{
-						actionId: PtzOpticsActionId.PanTiltDownRight,
+						actionId: FomakoActionId.PanTiltDownRight,
 						options: {},
 					},
 				],
 				up: [
 					{
-						actionId: PtzOpticsActionId.PanTiltStop,
+						actionId: FomakoActionId.PanTiltStop,
 						options: {},
 					},
 				],
@@ -277,7 +277,7 @@ export function getPresets(): CompanionPresetDefinitions {
 			{
 				down: [
 					{
-						actionId: PtzOpticsActionId.PanTiltHome,
+						actionId: FomakoActionId.PanTiltHome,
 						options: {},
 					},
 				],
@@ -301,7 +301,7 @@ export function getPresets(): CompanionPresetDefinitions {
 			{
 				down: [
 					{
-						actionId: PtzOpticsActionId.PanTiltSpeedUp,
+						actionId: FomakoActionId.PanTiltSpeedUp,
 						options: {},
 					},
 				],
@@ -325,7 +325,7 @@ export function getPresets(): CompanionPresetDefinitions {
 			{
 				down: [
 					{
-						actionId: PtzOpticsActionId.PanTiltSpeedDown,
+						actionId: FomakoActionId.PanTiltSpeedDown,
 						options: {},
 					},
 				],
@@ -349,13 +349,13 @@ export function getPresets(): CompanionPresetDefinitions {
 			{
 				down: [
 					{
-						actionId: PtzOpticsActionId.StartZoomIn,
+						actionId: FomakoActionId.StartZoomIn,
 						options: {},
 					},
 				],
 				up: [
 					{
-						actionId: PtzOpticsActionId.StopZoom,
+						actionId: FomakoActionId.StopZoom,
 						options: {},
 					},
 				],
@@ -378,13 +378,13 @@ export function getPresets(): CompanionPresetDefinitions {
 			{
 				down: [
 					{
-						actionId: PtzOpticsActionId.StartZoomOut,
+						actionId: FomakoActionId.StartZoomOut,
 						options: {},
 					},
 				],
 				up: [
 					{
-						actionId: PtzOpticsActionId.StopZoom,
+						actionId: FomakoActionId.StopZoom,
 						options: {},
 					},
 				],
@@ -407,13 +407,13 @@ export function getPresets(): CompanionPresetDefinitions {
 			{
 				down: [
 					{
-						actionId: PtzOpticsActionId.StartFocusNearer,
+						actionId: FomakoActionId.StartFocusNearer,
 						options: {},
 					},
 				],
 				up: [
 					{
-						actionId: PtzOpticsActionId.StopFocus,
+						actionId: FomakoActionId.StopFocus,
 						options: {},
 					},
 				],
@@ -436,13 +436,13 @@ export function getPresets(): CompanionPresetDefinitions {
 			{
 				down: [
 					{
-						actionId: PtzOpticsActionId.StartFocusFarther,
+						actionId: FomakoActionId.StartFocusFarther,
 						options: {},
 					},
 				],
 				up: [
 					{
-						actionId: PtzOpticsActionId.StopFocus,
+						actionId: FomakoActionId.StopFocus,
 						options: {},
 					},
 				],
@@ -465,7 +465,7 @@ export function getPresets(): CompanionPresetDefinitions {
 			{
 				down: [
 					{
-						actionId: PtzOpticsActionId.SelectFocusMode,
+						actionId: FomakoActionId.SelectFocusMode,
 						options: {
 							bol: 0,
 						},
@@ -473,7 +473,7 @@ export function getPresets(): CompanionPresetDefinitions {
 				],
 				up: [
 					{
-						actionId: PtzOpticsActionId.SelectFocusMode,
+						actionId: FomakoActionId.SelectFocusMode,
 						options: {
 							bol: 1,
 						},
@@ -498,7 +498,7 @@ export function getPresets(): CompanionPresetDefinitions {
 			{
 				down: [
 					{
-						actionId: PtzOpticsActionId.LockFocus,
+						actionId: FomakoActionId.LockFocus,
 						options: {},
 					},
 				],
@@ -522,7 +522,7 @@ export function getPresets(): CompanionPresetDefinitions {
 			{
 				down: [
 					{
-						actionId: PtzOpticsActionId.UnlockFocus,
+						actionId: FomakoActionId.UnlockFocus,
 						options: {},
 					},
 				],
@@ -546,7 +546,7 @@ export function getPresets(): CompanionPresetDefinitions {
 			{
 				down: [
 					{
-						actionId: PtzOpticsActionId.SelectExposureMode,
+						actionId: FomakoActionId.SelectExposureMode,
 						options: {
 							val: 0,
 						},
@@ -557,7 +557,7 @@ export function getPresets(): CompanionPresetDefinitions {
 			{
 				down: [
 					{
-						actionId: PtzOpticsActionId.SelectExposureMode,
+						actionId: FomakoActionId.SelectExposureMode,
 						options: {
 							val: 1,
 						},
@@ -583,7 +583,7 @@ export function getPresets(): CompanionPresetDefinitions {
 			{
 				down: [
 					{
-						actionId: PtzOpticsActionId.IrisUp,
+						actionId: FomakoActionId.IrisUp,
 						options: {},
 					},
 				],
@@ -607,7 +607,7 @@ export function getPresets(): CompanionPresetDefinitions {
 			{
 				down: [
 					{
-						actionId: PtzOpticsActionId.IrisDown,
+						actionId: FomakoActionId.IrisDown,
 						options: {},
 					},
 				],
@@ -631,7 +631,7 @@ export function getPresets(): CompanionPresetDefinitions {
 			{
 				down: [
 					{
-						actionId: PtzOpticsActionId.ShutterUp,
+						actionId: FomakoActionId.ShutterUp,
 						options: {},
 					},
 				],
@@ -655,7 +655,7 @@ export function getPresets(): CompanionPresetDefinitions {
 			{
 				down: [
 					{
-						actionId: PtzOpticsActionId.ShutterDown,
+						actionId: FomakoActionId.ShutterDown,
 						options: {},
 					},
 				],
@@ -679,7 +679,7 @@ export function getPresets(): CompanionPresetDefinitions {
 			{
 				down: [
 					{
-						actionId: PtzOpticsActionId.SelectWhiteBalance,
+						actionId: FomakoActionId.SelectWhiteBalance,
 						options: {
 							val: 'automatic',
 						},
@@ -705,7 +705,7 @@ export function getPresets(): CompanionPresetDefinitions {
 			{
 				down: [
 					{
-						actionId: PtzOpticsActionId.SelectWhiteBalance,
+						actionId: FomakoActionId.SelectWhiteBalance,
 						options: {
 							val: 'indoor',
 						},
@@ -731,7 +731,7 @@ export function getPresets(): CompanionPresetDefinitions {
 			{
 				down: [
 					{
-						actionId: PtzOpticsActionId.SelectWhiteBalance,
+						actionId: FomakoActionId.SelectWhiteBalance,
 						options: {
 							val: 'outdoor',
 						},
@@ -757,7 +757,7 @@ export function getPresets(): CompanionPresetDefinitions {
 			{
 				down: [
 					{
-						actionId: PtzOpticsActionId.SelectWhiteBalance,
+						actionId: FomakoActionId.SelectWhiteBalance,
 						options: {
 							val: 'onepush',
 						},
@@ -783,7 +783,7 @@ export function getPresets(): CompanionPresetDefinitions {
 			{
 				down: [
 					{
-						actionId: PtzOpticsActionId.WhiteBalanceOnePushTrigger,
+						actionId: FomakoActionId.WhiteBalanceOnePushTrigger,
 						options: {},
 					},
 				],
@@ -807,7 +807,7 @@ export function getPresets(): CompanionPresetDefinitions {
 			{
 				down: [
 					{
-						actionId: PtzOpticsActionId.AutoTracking,
+						actionId: FomakoActionId.AutoTracking,
 						options: {
 							tracking: 'on',
 						},
@@ -833,7 +833,7 @@ export function getPresets(): CompanionPresetDefinitions {
 			{
 				down: [
 					{
-						actionId: PtzOpticsActionId.AutoTracking,
+						actionId: FomakoActionId.AutoTracking,
 						options: {
 							tracking: 'off',
 						},
@@ -859,7 +859,7 @@ export function getPresets(): CompanionPresetDefinitions {
 			{
 				down: [
 					{
-						actionId: PtzOpticsActionId.OSD,
+						actionId: FomakoActionId.OSD,
 						options: {
 							[OnScreenDisplayOption.id]: 'toggle',
 						},
@@ -893,7 +893,7 @@ export function getPresets(): CompanionPresetDefinitions {
 				{
 					down: [
 						{
-							actionId: PtzOpticsActionId.OSDNavigate,
+							actionId: FomakoActionId.OSDNavigate,
 							options: {
 								[OnScreenDisplayNavigateOption.id]: DIRECTION,
 							},
@@ -920,7 +920,7 @@ export function getPresets(): CompanionPresetDefinitions {
 			{
 				down: [
 					{
-						actionId: PtzOpticsActionId.OSDEnter,
+						actionId: FomakoActionId.OSDEnter,
 						options: {},
 					},
 				],
@@ -944,7 +944,7 @@ export function getPresets(): CompanionPresetDefinitions {
 			{
 				down: [
 					{
-						actionId: PtzOpticsActionId.OSDBack,
+						actionId: FomakoActionId.OSDBack,
 						options: {},
 					},
 				],
@@ -971,7 +971,7 @@ export function getPresets(): CompanionPresetDefinitions {
 					{
 						down: [
 							{
-								actionId: PtzOpticsActionId.SetPreset,
+								actionId: FomakoActionId.SetPreset,
 								options: {
 									val: ('0' + save.toString(16)).slice(-2),
 								},
@@ -1002,7 +1002,7 @@ export function getPresets(): CompanionPresetDefinitions {
 					{
 						down: [
 							{
-								actionId: PtzOpticsActionId.RecallPreset,
+								actionId: FomakoActionId.RecallPreset,
 								options: {
 									val: ('0' + recall.toString(16)).slice(-2),
 								},
